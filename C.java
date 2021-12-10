@@ -5,15 +5,18 @@ public class C {
 	static boolean DEBUG = false;
     public static void main(String args[]) throws IOException{
         if (args.length == 2) {
-			System.setIn(new FileInputStream(new File("input.txt")));
+			System.setIn(new FileInputStream(new File(args[0])));
 			System.setOut(new PrintStream(new File("output.txt")));
 			DEBUG = true;
 		}
         Reader fs = new Reader();
         PrintWriter pw = new PrintWriter(System.out);
+        if(DEBUG) {
+        	fs.next();
+        }
         int t = fs.nextInt();
         for(int tt = 1 ; tt <= t ; tt++) {
-            pw.println(tt);
+            
         }
 		pw.close();
     }

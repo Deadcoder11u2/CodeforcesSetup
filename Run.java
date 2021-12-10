@@ -22,7 +22,32 @@ public class Run {
                     line = br.readLine();
                 }
             }
-            
+            br = new BufferedReader(new FileReader("output.txt"));
+            line = br.readLine();
+            BufferedReader ans = new BufferedReader(new FileReader(args[0] + "out.txt"));
+            boolean passed = true;
+            ans.readLine();
+            ans.readLine();
+            if(line == null) {
+                System.out.println("Your Code is not printing anything");
+                return;
+            }
+            String answer = ans.readLine();
+            while (line != null && answer != null) {
+                System.out.println("\"" + answer + "\"" + " " + "\"" + line + "\"");
+                passed &= answer.equals(line);
+                if (!answer.equals(line)) {
+                    System.out.println("Expected ->" + "\"" + answer + "\"" + " Found ->" + "\"" + line + "\"");
+                }
+                line = br.readLine();
+                answer = ans.readLine();
+                System.out.println();
+            }
+            if (passed) {
+                System.out.println("Safe To Submit");
+            } else {
+                System.out.println("Wrong answer Read the trace above");
+            }
             br.close();
         } catch (Exception e) {
             e.printStackTrace();

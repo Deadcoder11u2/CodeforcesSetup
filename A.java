@@ -7,7 +7,6 @@ public class A {
         if (args.length == 2) {
 			System.setIn(new FileInputStream(new File(args[0])));
 			System.setOut(new PrintStream(new File("output.txt")));
-			System.setErr(new PrintStream(new File("error.txt")));
 			DEBUG = true;
 		}
         Reader fs = new Reader();
@@ -17,17 +16,12 @@ public class A {
         }
         int t = fs.nextInt();
         for(int tt = 1 ; tt <= t ; tt++) {
-            int x1 = fs.nextInt();
-            int y1 = fs.nextInt();
-            int x2 = fs.nextInt();
-            int y2 = fs.nextInt();
-            pw.println(x1 + " " + y1 + " " + y2 + " " + x2);
+            
         }
 		pw.close();
     }
     static void log(Object o) {
-    	if(DEBUG)
-			System.err.println(o);
+		System.err.println(o);
 	}
  
 	static <T> void log(T a[]) {
